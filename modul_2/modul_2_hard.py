@@ -12,16 +12,20 @@ def random_numbers(list_ : list):
 
 
 list_nums = list_numbers()
-# print(list_nums)
 random_num = random_numbers(list_nums)
 print(f' Число из первой всавки - {random_num}')
 result = []
-
+new_result = []
 for i in range(1, random_num):
     for j in range(1, random_num):
-        if random_num % (i + j) == 0:
-            result.append(i)
-            result.append(j)
-
-
-print(*result)
+        if random_num % (i + j) == 0 and i != j:
+            flag = True
+            for i_result in result:
+                if i in i_result and j in i_result:
+                    flag = False
+            if flag:
+                result.append([i, j])
+for i_result in result:
+    for j_result in i_result:
+        new_result.append(j_result)
+print(*new_result)
