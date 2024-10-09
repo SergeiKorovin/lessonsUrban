@@ -47,22 +47,9 @@ class House:
             return House(self.name, self.number_of_floors)
 
     def __radd__(self, other):
-        if isinstance(other, int):
-            return House(self.name, self.number_of_floors + other)
-        elif isinstance(other, House):
-            return House(self.name, self.number_of_floors + other.number_of_floors)
-        else:
-            print('Не известный тип')
-            return House(self.name, self.number_of_floors)
-
+        return self.__add__(other)
     def __iadd__(self, other):
-        if isinstance(other, int):
-            return House(self.name, self.number_of_floors + other)
-        elif isinstance(other, House):
-            return House(self.name, self.number_of_floors + other.number_of_floors)
-        else:
-            print('Не известный тип')
-            return House(self.name, self.number_of_floors)
+        return self.__add__(other)
 
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
