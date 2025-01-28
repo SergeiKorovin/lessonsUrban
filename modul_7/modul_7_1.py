@@ -19,14 +19,14 @@ class Shop:
         return products_
 
     def add(self, *products):
+        file_products = open(self.__file_name, 'a', encoding='utf-8')
         for i in products:
             for i_product in self.get_products().split('\n'):
                 if i.name in i_product.split(', ')[0]:
                    i.weight += float(i_product.split(', ')[1])
                    print(f'Продукт {i.name} уже был в магазине, его общий вес теперь равен {i.weight}')
-            file_products = open(self.__file_name, 'a', encoding='utf-8')
             file_products.write(f'{i.name}, {i.weight}, {i.category}\n')
-            file_products.close()
+        file_products.close()
 
 
 if __name__ == '__main__':
