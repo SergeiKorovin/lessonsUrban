@@ -18,7 +18,7 @@ class Animal:
         list_cord = [dx, dy, dz]
         for i in range(len(self._cords)):
             if list_cord[i] >=0:
-                self._cords[i] = list_cord[i] *self.speed
+                self._cords[i] = list_cord[i] * self.speed
             else:
                 print("It's too deep, i can't dive :(")
 

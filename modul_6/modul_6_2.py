@@ -15,6 +15,7 @@ class Vehicle:
 
     def get_color(self):
         print(f'Цвет: {self.__color}')
+        return self.__color
 
     def print_info(self):
         self.get_model()
